@@ -8,10 +8,6 @@ public class Board {
 
 	private char[][] consoleBoard = new char[3][3];
 
-	public Board(char[][] consoleBoard) {
-		this.consoleBoard = consoleBoard;
-	}
-
 	public void showBoard() {
 		System.out.println();
 		for (int i = 0; i < 3; i++) {
@@ -34,4 +30,8 @@ public class Board {
 		}
 	}
 
+	public void setValue(int x,int y, char v){
+		consoleBoard[x][y] = v;
+	}
+	
 }
