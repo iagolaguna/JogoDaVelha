@@ -6,6 +6,7 @@ package br.com.mvil;
 public class Player {
     private char brand;
 
+
     public Player(char brand) {
         this.brand = brand;
     }
