@@ -19,5 +19,7 @@ public class Main {
             System.out.println("A Linha escolhida foi: "+x+" A Coluna escolhida foi: "+y);
             game.putPiece(x,y);
         }
+        game.finalizeGame();
+
     }
 }

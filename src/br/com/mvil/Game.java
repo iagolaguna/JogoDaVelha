@@ -24,17 +24,19 @@ public class Game {
         p1 = new Player(brandPlayer1);
         p2 = new Player(brandPlayer2);
         board = new Board();
+        board.showBoard();
     }
 
 
     public boolean putPiece(int x, int y){
         if (turnPlayer){
             board.setValue(x,y,p1.getBrand());
-            return false;
         }else{
             board.setValue(x,y,p2.getBrand());
-            return false;
         }
+        board.showBoard();
+        winner = board.validateGame();
+        return winner;
     }
     public boolean isTurnOfPlayer1(){
         return turnPlayer;
@@ -47,5 +49,13 @@ public class Game {
 
     public boolean hasWinner(){
         return winner;
+    }
+    public void finalizeGame(){
+        if (isTurnOfPlayer1()){
+            System.out.println("O Jogador 1 foi o Vencedor Sua Marca era :"+p1.getBrand());
+        }else{
+            System.out.println("O Jogador 2 foi o Vencedor Sua Marca era :"+p2.getBrand());
+        }
+        board.showBoard();
     }
 }
