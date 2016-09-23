@@ -8,6 +8,10 @@ public class Board {
 
 	private char[][] consoleBoard = new char[3][3];
 
+
+	/*
+	 * @Author Marcos Vinicius
+	 * */
 	public void showBoard() {
 		System.out.println();
 		for (int i = 0; i < 3; i++) {
@@ -30,16 +34,27 @@ public class Board {
 		}
 	}
 
+	
+	/*
+	 * @Author Marcos Vinicius
+	 * */
 	public void setValue(int x,int y, char v){
 		consoleBoard[x][y] = v;
 	}
 	
+	
+	/*
+	 * @Author Marcos Vinicius
+	 * */
 	private boolean validateCombination(char a, char b, char c){
 		
-		return a==b && b==c;
+		return a==b && b==c ;
 		
 	}
 	
+	/*
+	 * @Author Marcos Vinicius
+	 * */
 	public boolean validateGame(){
 		
 		
@@ -65,10 +80,13 @@ public class Board {
 			
 		return false;
 	}
-	
+	/*
+	 * @Author Marcos Vinicius
+	 * */
 	public boolean isPositionEmpty(int x, int y){
-		
-		return consoleBoard[x][y] == '\u0000';
-		
+		return isCharEmpty(consoleBoard[x][y]);
+	}
+	public boolean isCharEmpty(char value){
+		return value == '\u0000';
 	}
 }
