@@ -29,7 +29,8 @@ public class Game {
 
 
     public boolean putPiece(int x, int y){
-
+        x-=1;
+        y-=1;
         try {
             if (board.validatePosition(x,y)) {
                 if (turnPlayer) {
@@ -69,9 +70,9 @@ public class Game {
     }
     public void finalizeGame(){
         if (isTurnOfPlayer1()){
-            System.out.println("O Jogador 1 foi o Vencedor Sua Marca era :"+p1.getBrand());
+            System.out.println("O Jogador 1 foi o Vencedor Sua Letra era '"+p1.getBrand()+"'");
         }else{
-            System.out.println("O Jogador 2 foi o Vencedor Sua Marca era :"+p2.getBrand());
+            System.out.println("O Jogador 2 foi o Vencedor Sua Marca era :'"+p2.getBrand()+"'");
         }
         board.showBoard();
     }

@@ -39,8 +39,6 @@ public class Board {
 	 * @Author Marcos Vinicius
 	 * */
 	public void setValue(int x,int y, char v){
-		x-=1;
-		y-=1;
 		consoleBoard[x][y] = v;
 	}
 	
