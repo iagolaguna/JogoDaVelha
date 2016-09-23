@@ -39,6 +39,8 @@ public class Board {
 	 * @Author Marcos Vinicius
 	 * */
 	public void setValue(int x,int y, char v){
+		x-=1;
+		y-=1;
 		consoleBoard[x][y] = v;
 	}
 	
@@ -96,4 +98,6 @@ public class Board {
 	public boolean validatePosition(int x,int y){
 		return consoleBoard[x][y]==' ';
 	}
+	
+	 
 }
