@@ -13,7 +13,7 @@ public class Board {
 		for (int i = 0; i < 3; i++) {
 			for (int i2 = 0; i2 < 3; i2++) {
 				
-				if (consoleBoard[i][i2] == '\u0000') {
+				if (isPositionEmpty(i, i2)) {
 					consoleBoard[i][i2]=' ';
 				} 
 				
@@ -34,4 +34,41 @@ public class Board {
 		consoleBoard[x][y] = v;
 	}
 	
+	private boolean validateCombination(char a, char b, char c){
+		
+		return a==b && b==c;
+		
+	}
+	
+	public boolean validateGame(){
+		
+		
+		for(int x=0;x<3;x++){
+			if(validateCombination(consoleBoard[x][0],consoleBoard[x][1],consoleBoard[x][2])){
+				return true;
+			} 
+		}
+		
+		for(int y=0;y<3;y++){
+			if(validateCombination(consoleBoard[0][y],consoleBoard[1][y],consoleBoard[2][y])){
+				return true;
+			}
+		}
+		
+		if(validateCombination(consoleBoard[1][1],consoleBoard[2][2],consoleBoard[3][3])){
+			return true;
+		}
+		
+		if(validateCombination(consoleBoard[1][3],consoleBoard[2][2],consoleBoard[3][1])){
+			return true;
+		}
+			
+		return false;
+	}
+	
+	public boolean isPositionEmpty(int x, int y){
+		
+		return consoleBoard[x][y] == '\u0000';
+		
+	}
 }

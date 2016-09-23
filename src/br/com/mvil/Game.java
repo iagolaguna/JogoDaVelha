@@ -43,6 +43,7 @@ public class Game {
     public boolean isTurnOfPlayer2(){
         return !turnPlayer;
     }
+    
 
     public boolean hasWinner(){
         return winner;
