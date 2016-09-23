@@ -75,7 +75,7 @@ public class Board {
 		if(validateCombination(consoleBoard[0][2],consoleBoard[1][1],consoleBoard[2][0])){
 			return true;
 		}
-			
+		
 		return false;
 	}
 	/*
@@ -95,5 +95,16 @@ public class Board {
 		return consoleBoard[x][y]==' ';
 	}
 	
-	 
-}
+	public boolean isArrayNotEmpty(){
+		for (int i = 0; i < 3; i++) {
+			for (int i2 = 0; i2 < 3; i2++) {
+				if(consoleBoard[i][i2]==' '){
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+}	 
+
