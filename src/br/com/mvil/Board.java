@@ -89,4 +89,11 @@ public class Board {
 	public boolean isCharEmpty(char value){
 		return value == '\u0000';
 	}
+	
+	/*
+	 * @Author Marcos Vinicius
+	 * */
+	public boolean validatePosition(int x,int y){
+		return consoleBoard[x][y]==' ';
+	}
 }
