@@ -15,7 +15,4 @@ public class Player {
         return brand;
     }
 
-    public void setBrand(char brand) {
-        this.brand = brand;
-    }
 }
