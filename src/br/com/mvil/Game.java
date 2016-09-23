@@ -3,9 +3,13 @@ package br.com.mvil;
 /**
  * Created by Aluno on 22/09/2016.
  */
+
 public class Game {
+    private  boolean turnPlayer = true;
+    private  boolean winner;
     private Player p1;
     private Player p2;
+    private Board board;
 
     public Game(){
 
@@ -19,10 +23,28 @@ public class Game {
         System.out.println("Jogador 2  seu simbolo no tabuleiro é  'O'");
         p1 = new Player(brandPlayer1);
         p2 = new Player(brandPlayer2);
+        board = new Board();
     }
 
 
-    public void putPiece(){
-        
+    public boolean putPiece(int x, int y){
+        if (turnPlayer){
+            board.setValue(x,y,p1.getBrand());
+            return false;
+        }else{
+            board.setValue(x,y,p2.getBrand());
+            return false;
+        }
+    }
+    public boolean isTurnOfPlayer1(){
+        return turnPlayer;
+    }
+
+    public boolean isTurnOfPlayer2(){
+        return !turnPlayer;
+    }
+
+    public boolean hasWinner(){
+        return winner;
     }
 }
