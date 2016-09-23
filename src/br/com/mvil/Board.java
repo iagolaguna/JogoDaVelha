@@ -48,7 +48,7 @@ public class Board {
 	 * */
 	private boolean validateCombination(char a, char b, char c){
 		
-		return a==b && b==c && !isCharEmpty(a) ;
+		return a==b && b==c &&  a !=' ' ;
 		
 	}
 	

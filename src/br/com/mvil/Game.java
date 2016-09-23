@@ -34,6 +34,7 @@ public class Game {
         }else{
             board.setValue(x,y,p2.getBrand());
         }
+        turnPlayer = !turnPlayer;
         board.showBoard();
         winner = board.validateGame();
         return winner;
