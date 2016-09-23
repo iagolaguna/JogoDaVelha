@@ -29,16 +29,32 @@ public class Game {
 
 
     public boolean putPiece(int x, int y){
-        if (turnPlayer){
-            board.setValue(x,y,p1.getBrand());
-        }else{
-            board.setValue(x,y,p2.getBrand());
+
+        try {
+            if (board.validatePosition(x,y)) {
+                if (turnPlayer) {
+                    board.setValue(x, y, p1.getBrand());
+                } else {
+                    board.setValue(x, y, p2.getBrand());
+                }
+                turnPlayer = !turnPlayer;
+            }else{
+                System.out.println("");
+                System.out.println("Ja existe uma marca nesta posição, por favor informe outra posição");
+                System.out.println("");
+            }
+
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("");
+            System.out.println("Posição Invalida, favor inserir um Posição valida");
+            System.out.println("");
         }
-        turnPlayer = !turnPlayer;
+
         board.showBoard();
         winner = board.validateGame();
         return winner;
     }
+
     public boolean isTurnOfPlayer1(){
         return turnPlayer;
     }
@@ -58,5 +74,9 @@ public class Game {
             System.out.println("O Jogador 2 foi o Vencedor Sua Marca era :"+p2.getBrand());
         }
         board.showBoard();
+    }
+
+    public void getPositionsOfPlayer() {
+
     }
 }

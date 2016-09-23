@@ -47,7 +47,6 @@ public class Board {
 	 * @Author Marcos Vinicius
 	 * */
 	private boolean validateCombination(char a, char b, char c){
-		
 		return a==b && b==c &&  a !=' ' ;
 		
 	}
@@ -56,8 +55,7 @@ public class Board {
 	 * @Author Marcos Vinicius
 	 * */
 	public boolean validateGame(){
-		
-		
+
 		for(int x=0;x<3;x++){
 			if(validateCombination(consoleBoard[x][0],consoleBoard[x][1],consoleBoard[x][2])){
 				return true;

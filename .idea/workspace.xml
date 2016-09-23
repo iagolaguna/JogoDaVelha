@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="29a96921-9cfb-4411-a81e-282da79dd4b1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JogoDaVelha/br/com/mvil/Board.class" afterPath="$PROJECT_DIR$/out/production/JogoDaVelha/br/com/mvil/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JogoDaVelha/br/com/mvil/Game.class" afterPath="$PROJECT_DIR$/out/production/JogoDaVelha/br/com/mvil/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/mvil/Board.java" afterPath="$PROJECT_DIR$/src/br/com/mvil/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/mvil/Game.java" afterPath="$PROJECT_DIR$/src/br/com/mvil/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/mvil/Main.java" afterPath="$PROJECT_DIR$/src/br/com/mvil/Main.java" />
     </list>
     <ignored path="JogoDaVelha.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,42 +31,37 @@
         <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="478">
+              <caret line="93" column="35" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="35" />
               <folding>
-                <element signature="e#1557#1558#0" expanded="true" />
-                <element signature="e#1602#1603#0" expanded="true" />
-                <element signature="e#1643#1644#0" expanded="true" />
-                <element signature="e#1674#1675#0" expanded="true" />
+                <element signature="method#showBoard#0;class#Board#0" expanded="false" />
+                <element signature="method#validateCombination#0;class#Board#0" expanded="false" />
+                <element signature="method#validateGame#0;class#Board#0" expanded="false" />
+                <element signature="e#1549#1550#0" expanded="true" />
+                <element signature="e#1594#1595#0" expanded="true" />
+                <element signature="e#1635#1636#0" expanded="true" />
+                <element signature="e#1666#1667#0" expanded="true" />
+                <element signature="e#1754#1755#0" expanded="true" />
+                <element signature="e#1791#1792#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="529">
+              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -94,8 +88,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/br/com/mvil/Player.java" />
-        <option value="$PROJECT_DIR$/src/br/com/mvil/Main.java" />
         <option value="$PROJECT_DIR$/src/br/com/mvil/Board.java" />
+        <option value="$PROJECT_DIR$/src/br/com/mvil/Main.java" />
         <option value="$PROJECT_DIR$/src/br/com/mvil/Game.java" />
       </list>
     </option>
@@ -484,7 +478,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -505,10 +501,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1643#1644#0" expanded="true" />
-            <element signature="e#1674#1675#0" expanded="true" />
+            <element signature="method#showBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#validateCombination#0;class#Board#0" expanded="false" />
+            <element signature="method#validateGame#0;class#Board#0" expanded="false" />
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#1635#1636#0" expanded="true" />
+            <element signature="e#1666#1667#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+            <element signature="e#1791#1792#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -548,7 +549,7 @@
     <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -561,24 +562,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="478">
+          <caret line="93" column="35" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="35" />
+          <folding>
+            <element signature="method#showBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#validateCombination#0;class#Board#0" expanded="false" />
+            <element signature="method#validateGame#0;class#Board#0" expanded="false" />
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#1635#1636#0" expanded="true" />
+            <element signature="e#1666#1667#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+            <element signature="e#1791#1792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/br/com/mvil/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1643#1644#0" expanded="true" />
-            <element signature="e#1674#1675#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="529">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
