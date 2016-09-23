@@ -70,11 +70,11 @@ public class Board {
 			}
 		}
 		
-		if(validateCombination(consoleBoard[1][1],consoleBoard[2][2],consoleBoard[3][3])){
+		if(validateCombination(consoleBoard[0][0],consoleBoard[1][1],consoleBoard[2][2])){
 			return true;
 		}
 		
-		if(validateCombination(consoleBoard[1][3],consoleBoard[2][2],consoleBoard[3][1])){
+		if(validateCombination(consoleBoard[0][2],consoleBoard[1][1],consoleBoard[2][0])){
 			return true;
 		}
 			
