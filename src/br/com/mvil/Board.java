@@ -95,16 +95,18 @@ public class Board {
 		return consoleBoard[x][y]==' ';
 	}
 	
-	public boolean isArrayNotEmpty(){
+	public boolean isArrayFull(){
 		for (int i = 0; i < 3; i++) {
 			for (int i2 = 0; i2 < 3; i2++) {
 				if(consoleBoard[i][i2]==' '){
-					return true;
+					return false;
 				}
+
 			}
 		}
 		
-		return false;
+		return true;
+		 
 	}
 }	 
 
