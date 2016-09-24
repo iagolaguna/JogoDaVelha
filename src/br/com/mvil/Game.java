@@ -6,7 +6,7 @@ package br.com.mvil;
 
 public class Game {
     private  boolean turnPlayer = true;
-    private  boolean winner;
+    private  StatusGame status;
     private Player p1;
     private Player p2;
     private Board board;
@@ -23,12 +23,13 @@ public class Game {
         System.out.println("Jogador 2  seu simbolo no tabuleiro é  'O'");
         p1 = new Player(brandPlayer1);
         p2 = new Player(brandPlayer2);
+        status = StatusGame.PLAYING;
         board = new Board();
         board.showBoard();
     }
 
 
-    public boolean putPiece(int x, int y){
+    public void putPiece(int x, int y){
         x-=1;
         y-=1;
         try {
@@ -39,21 +40,30 @@ public class Game {
                     board.setValue(x, y, p2.getBrand());
                 }
                 turnPlayer = !turnPlayer;
-            }else{
-                System.out.println("");
-                System.out.println("Ja existe uma marca nesta posição, por favor informe outra posição");
-                System.out.println("");
-            }
+                setStatus();
 
+            }else{
+                message("Ja existe uma marca nesta posição, por favor informe outra posição");
+            }
         }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("");
-            System.out.println("Posição Invalida, favor inserir um Posição valida");
-            System.out.println("");
+            message("Posição Invalida, favor inserir um Posição valida");
         }
 
         board.showBoard();
-        winner = board.validateGame();
-        return winner;
+    }
+
+    private void setStatus() {
+        if (board.validateGame()){
+            status = isTurnOfPlayer1() ? StatusGame.WINNER_PLAYER_ONE : StatusGame.WINNER_PLAYER_TWO;
+        }else if(!board.validateGame() && !board.isArrayNotEmpty()){
+            status = StatusGame.TIED_PLAYERS;
+        }
+    }
+
+    private void message(String message) {
+        System.out.println("");
+        System.out.println(message);
+        System.out.println("");
     }
 
     public boolean isTurnOfPlayer1(){
@@ -63,21 +73,22 @@ public class Game {
     public boolean isTurnOfPlayer2(){
         return !turnPlayer;
     }
-    
 
-    public boolean hasWinner(){
-        return winner;
-    }
     public void finalizeGame(){
-        if (isTurnOfPlayer1()){
-            System.out.println("O Jogador 1 foi o Vencedor Sua Letra era '"+p1.getBrand()+"'");
+        if (status == StatusGame.TIED_PLAYERS) {
+            System.out.println("Houve um empate entre os jogadores!");
         }else{
-            System.out.println("O Jogador 2 foi o Vencedor Sua Marca era :'"+p2.getBrand()+"'");
+            if (isTurnOfPlayer1()) {
+                System.out.println("O Jogador 1 foi o Vencedor Sua Letra era '" + p1.getBrand() + "'");
+            } else {
+                System.out.println("O Jogador 2 foi o Vencedor Sua Marca era :'" + p2.getBrand() + "'");
+            }
         }
         board.showBoard();
     }
 
-    public void getPositionsOfPlayer() {
 
+    public StatusGame getStatus() {
+        return status;
     }
 }

@@ -10,8 +10,7 @@ public class Main {
         game.init('X','O');
         int x;
         int y;
-        while (!game.hasWinner()){
-            game.getPositionsOfPlayer();
+        while (game.getStatus() == StatusGame.PLAYING ){
             System.out.println(String.format("Jogador %s faça sua jogada",game.isTurnOfPlayer1() ? "1" : "2"));
             System.out.println("Insira a posição da linha");
             x = scanner.nextInt();
