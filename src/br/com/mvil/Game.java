@@ -16,8 +16,8 @@ public class Game {
     }
 
     public void init(char brandPlayer1, char brandPlayer2){
-        brandPlayer1 = 'O';
-        brandPlayer2 = 'X';
+        brandPlayer1 = 'X';
+        brandPlayer2 = 'O';
         System.out.println("Montando Tabuleiro...");
         System.out.println("Jogador 1  seu simbolo no tabuleiro é  'X'");
         System.out.println("Jogador 2  seu simbolo no tabuleiro é  'O'");
@@ -55,7 +55,7 @@ public class Game {
     private void setStatus() {
         if (board.validateGame()){
             status = isTurnOfPlayer1() ? StatusGame.WINNER_PLAYER_ONE : StatusGame.WINNER_PLAYER_TWO;
-        }else if(!board.validateGame() && !board.isArrayNotEmpty()){
+        }else if(!board.validateGame() && board.isArrayFull()){
             status = StatusGame.TIED_PLAYERS;
         }
     }
@@ -70,9 +70,6 @@ public class Game {
         return turnPlayer;
     }
 
-    public boolean isTurnOfPlayer2(){
-        return !turnPlayer;
-    }
 
     public void finalizeGame(){
         if (status == StatusGame.TIED_PLAYERS) {

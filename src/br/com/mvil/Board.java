@@ -84,6 +84,7 @@ public class Board {
 	public boolean isPositionEmpty(int x, int y){
 		return isCharEmpty(consoleBoard[x][y]);
 	}
+
 	public boolean isCharEmpty(char value){
 		return value == '\u0000';
 	}
