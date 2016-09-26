@@ -1,5 +1,7 @@
 package br.com.mvil;
 
+import br.com.mvil.dto.Position;
+
 /**
  * @Author Marcos Vinicius
  */
@@ -39,11 +41,10 @@ public class Board {
 	/*
 	 * @Author Marcos Vinicius
 	 * */
-	public void setValue(int x,int y, char v){
-		consoleBoard[x][y] = v;
+	public void setValue(Position pos, char v){
+		consoleBoard[pos.getX()][pos.getY()] = v;
 	}
-	
-	
+
 	/*
 	 * @Author Marcos Vinicius
 	 * */
@@ -99,8 +100,8 @@ public class Board {
 	/*
 	 * @Author Marcos Vinicius
 	 * */
-	public boolean validatePosition(int x,int y){
-		return consoleBoard[x][y]==' ';
+	public boolean validatePosition(Position pos){
+		return consoleBoard[pos.getX()][pos.getY()]==' ';
 	}
 	
 	public boolean isArrayFull(){
@@ -109,12 +110,11 @@ public class Board {
 				if(consoleBoard[x][y]==EMPTY_CHAR){
 					return false;
 				}
-
 			}
 		}
-		
 		return true;
-		 
 	}
-}	 
+
+
+}
 

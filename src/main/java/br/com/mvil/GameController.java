@@ -2,10 +2,11 @@ package br.com.mvil;
 
 import br.com.mvil.dto.GameDTO;
 import br.com.mvil.dto.PlayerDTO;
+import br.com.mvil.dto.Position;
 import br.com.mvil.dto.StatusGame;
 
-import java.util.Scanner;
-
+import static br.com.mvil.InputOutputController.message;
+import static br.com.mvil.InputOutputController.messageWithEspaces;
 import static br.com.mvil.dto.StatusGame.TURN_PLAYER_ONE;
 import static br.com.mvil.dto.StatusGame.WINNER_PLAYER_ONE;
 
@@ -23,50 +24,44 @@ public class GameController {
     public void init(char brandPlayer1, char brandPlayer2){
         PlayerDTO p1 = new PlayerDTO('X');
         PlayerDTO p2 = new PlayerDTO('O');
+        gameDTO = new GameDTO(TURN_PLAYER_ONE, p1,p2,new Board());
         System.out.println("Montando Tabuleiro...");
         System.out.println("Jogador 1  seu simbolo no tabuleiro é  'X'");
         System.out.println("Jogador 2  seu simbolo no tabuleiro é  'O'");
-        gameDTO = new GameDTO(TURN_PLAYER_ONE, p1,p2,new Board());
-        run();
+        this.run();
     }
 
     public void init(){
-        System.out.println("Montando Tabuleiro...");
-        System.out.println("Jogador 1  seu simbolo no tabuleiro é  'X'");
-        System.out.println("Jogador 2  seu simbolo no tabuleiro é  'O'");
+        message("Montando Tabuleiro...");
+        message("Jogador 1  seu simbolo no tabuleiro é  'X'");
+        message("Jogador 2  seu simbolo no tabuleiro é  'O'");
         gameDTO.getBoard().showBoard();
-        run();
+        this.run();
     }
 
     public void run() {
-        Scanner scanner = new Scanner(System.in);
-        int x;
-        int y;
-        while (gameDTO.getStatus() == TURN_PLAYER_ONE
-               || gameDTO.getStatus() == StatusGame.TURN_PLAYER_TWO ){
-
-            message(String.format("Jogador %s faça sua jogada",
-                    String.valueOf(gameDTO.getStatus().getValue())));
-            message("Insira a posição da linha");
-            x = scanner.nextInt();
-            message("Insira a posição da coluna");
-            y = scanner.nextInt();
-            message("A Linha escolhida foi: "+x+" A Coluna escolhida foi: "+y);
-            putPiece(x,y);
+        InputOutputController mInputOutputController =new InputOutputController();
+        while (isTurnOfAPlayer()){
+            Position posPiece = mInputOutputController.
+                                readPositionOfPlayer(String.valueOf(gameDTO.getStatus().getValue()));
+            putPiece(posPiece);
         }
         finalizeGame();
-
     }
 
-    public void putPiece(int x, int y){
-        x-=1;
-        y-=1;
+    private boolean isTurnOfAPlayer() {
+        return gameDTO.getStatus() == TURN_PLAYER_ONE || gameDTO.getStatus() == StatusGame.TURN_PLAYER_TWO;
+    }
+
+
+    public void putPiece(Position pos){
+
         try {
-            if (gameDTO.getBoard().validatePosition(x,y)) {
+            if (gameDTO.getBoard().validatePosition(pos)) {
                 if (gameDTO.getStatus() == TURN_PLAYER_ONE) {
-                    gameDTO.getBoard().setValue(x, y, gameDTO.getPlayer1().getBrand());
+                    gameDTO.getBoard().setValue(pos, gameDTO.getPlayer1().getBrand());
                 } else {
-                    gameDTO.getBoard().setValue(x, y, gameDTO.getPlayer2().getBrand());
+                    gameDTO.getBoard().setValue(pos, gameDTO.getPlayer2().getBrand());
                 }
                 setStatus();
             }else{
@@ -94,14 +89,7 @@ public class GameController {
         }
     }
 
-    private void message(String message) {
-        System.out.println(message);
-    }
-    private void messageWithEspaces(String message) {
-        System.out.println("");
-        System.out.println(message);
-        System.out.println("");
-    }
+
 
     public void finalizeGame(){
         if (gameDTO.getStatus() == StatusGame.TIED_PLAYERS) {
