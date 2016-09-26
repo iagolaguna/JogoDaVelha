@@ -41,8 +41,8 @@ public class Board {
 	/*
 	 * @Author Marcos Vinicius
 	 * */
-	public void setValue(Position pos, char v){
-		consoleBoard[pos.getX()][pos.getY()] = v;
+	public void setValue(Position pos, char brandValue){
+		consoleBoard[pos.getX()][pos.getY()] = brandValue;
 	}
 
 	/*

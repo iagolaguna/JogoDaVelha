@@ -33,6 +33,7 @@ public class InputOutputController {
     public static void message(String message) {
         System.out.println(message);
     }
+
     public static void messageWithEspaces(String message) {
         System.out.println("");
         System.out.println(message);
