@@ -1,5 +1,6 @@
 package br.com.mvil;
 
+import br.com.mvil.dto.BoardDTO;
 import br.com.mvil.dto.Position;
 
 /**
@@ -8,9 +9,14 @@ import br.com.mvil.dto.Position;
 
 public class Board {
 
-    public static final char EMPTY_CHAR = ' ';
-    private char[][] consoleBoard = new char[3][3];
+    private BoardDTO boardDTO;
 
+    public Board(){
+        this.boardDTO = new BoardDTO();
+    }
+    public Board(BoardDTO boardDTO){
+        this.boardDTO = boardDTO;
+    }
 
 	/*
 	 * @Author Marcos Vinicius
@@ -20,12 +26,10 @@ public class Board {
 		for (int x = 0; x < 3; x++) {
 			for (int y = 0; y < 3; y++) {
 				
-				if (isPositionEmpty(x, y)) {
-					consoleBoard[x][y]=EMPTY_CHAR;
-				} 
-				
-				System.out.print("    " + consoleBoard[x][y] + "     ");
-				
+				if (boardDTO.isPositionEmpty(x, y)) {
+                    boardDTO.setPosition(x, y, BoardDTO.CHAR_WITH_SPACE);
+				}
+				System.out.print("    " + boardDTO.getPosition(x, y) + "     ");
 				if (y == 0 || y == 1) {
 					System.out.print("|");
 				}
@@ -33,23 +37,21 @@ public class Board {
 			System.out.println();
 
 			System.out.println(x == 2 ? "" : "---------------------------------");
-
 		}
 	}
 
-	
-	/*
-	 * @Author Marcos Vinicius
-	 * */
+    /*
+     * @Author Marcos Vinicius
+     * */
 	public void setValue(Position pos, char brandValue){
-		consoleBoard[pos.getX()][pos.getY()] = brandValue;
+        boardDTO.setPosition(pos.getX(),pos.getY(),brandValue);
 	}
 
 	/*
 	 * @Author Marcos Vinicius
 	 * */
 	private boolean validateCombination(char a, char b, char c){
-		return a==b && b==c &&  a != EMPTY_CHAR;
+		return a==b && b==c &&  a != BoardDTO.CHAR_WITH_SPACE;
 		
 	}
 	
@@ -57,57 +59,47 @@ public class Board {
 	 * @Author Marcos Vinicius
 	 * */
 	public boolean validateGame(){
-        return  validateHorizontal() && validateVertical() && validateDiagonal() && validateDiagonalReverse();
+        return  validateHorizontal() || validateVertical() || validateDiagonal() || validateDiagonalReverse();
     }
 
-    private boolean validateDiagonalReverse() {
-        return  validateCombination(consoleBoard[0][2],consoleBoard[1][1],consoleBoard[2][0]);
+    public boolean validateDiagonalReverse() {
+        return  validateCombination(boardDTO.getPosition(0, 2), boardDTO.getPosition(1, 1), boardDTO.getPosition(2, 0));
     }
 
-    private boolean validateDiagonal() {
-        return validateCombination(consoleBoard[0][0],consoleBoard[1][1],consoleBoard[2][2]);
+    public boolean validateDiagonal() {
+        return validateCombination(boardDTO.getPosition(0, 0), boardDTO.getPosition(1, 1), boardDTO.getPosition(2, 2));
     }
 
-    private boolean validateHorizontal() {
+    public boolean validateHorizontal() {
         for(int y = 0; y < 3; y++){
-			if(validateCombination(consoleBoard[0][y],consoleBoard[1][y],consoleBoard[2][y])){
+			if(validateCombination(boardDTO.getPosition(0, y), boardDTO.getPosition(1, y), boardDTO.getPosition(2, y))){
                 return true;
 			}
 		}
         return false;
     }
 
-    private boolean validateVertical() {
+    public boolean validateVertical() {
         for(int x = 0; x < 3; x++){
-            if(validateCombination(consoleBoard[x][0],consoleBoard[x][1],consoleBoard[x][2])){
+            if(validateCombination(boardDTO.getPosition(x, 0), boardDTO.getPosition(x, 1), boardDTO.getPosition(x, 2))){
                 return true;
             }
         }
         return false;
     }
 
-    /*
-     * @Author Marcos Vinicius
-     * */
-	public boolean isPositionEmpty(int x, int y){
-		return isCharEmpty(consoleBoard[x][y]);
-	}
-
-	public boolean isCharEmpty(char value){
-		return value == '\u0000';
-	}
-	
 	/*
 	 * @Author Marcos Vinicius
 	 * */
 	public boolean validatePosition(Position pos){
-		return consoleBoard[pos.getX()][pos.getY()]==' ';
+		return boardDTO.getPosition(pos.getX(), pos.getY()) == BoardDTO.CHAR_WITH_SPACE
+                || boardDTO.getPosition(pos.getX(), pos.getY()) == BoardDTO.CHAR_NULL;
 	}
 	
 	public boolean isArrayFull(){
 		for (int x = 0; x < 3; x++) {
 			for (int y = 0; y < 3; y++) {
-				if(consoleBoard[x][y]==EMPTY_CHAR){
+				if(boardDTO.getPosition(x, y) == BoardDTO.CHAR_WITH_SPACE){
 					return false;
 				}
 			}
