@@ -60,10 +60,8 @@ public class Board {
 			if(validateCombination(consoleBoard[x][0],consoleBoard[x][1],consoleBoard[x][2])){
 				return true;
 			} 
-		}
-		
-		for(int y=0;y<3;y++){
-			if(validateCombination(consoleBoard[0][y],consoleBoard[1][y],consoleBoard[2][y])){
+			
+			if(validateCombination(consoleBoard[0][x],consoleBoard[1][x],consoleBoard[2][x])){
 				return true;
 			}
 		}
