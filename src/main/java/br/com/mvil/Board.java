@@ -15,22 +15,22 @@ public class Board {
 	 * */
 	public void showBoard() {
 		System.out.println();
-		for (int i = 0; i < 3; i++) {
-			for (int i2 = 0; i2 < 3; i2++) {
+		for (int x = 0; x < 3; x++) {
+			for (int y = 0; y < 3; y++) {
 				
-				if (isPositionEmpty(i, i2)) {
-					consoleBoard[i][i2]=' ';
+				if (isPositionEmpty(x, y)) {
+					consoleBoard[x][y]=EMPTY_CHAR;
 				} 
 				
-				System.out.print("    " + consoleBoard[i][i2] + "     ");
+				System.out.print("    " + consoleBoard[x][y] + "     ");
 				
-				if (i2 == 0 || i2 == 1) {
+				if (y == 0 || y == 1) {
 					System.out.print("|");
 				}
 			}
 			System.out.println();
 
-			System.out.println(i == 2 ? "" : "---------------------------------");
+			System.out.println(x == 2 ? "" : "---------------------------------");
 
 		}
 	}
@@ -68,7 +68,7 @@ public class Board {
     }
 
     private boolean validateHorizontal() {
-        for(int y=0;y<3;y++){
+        for(int y = 0; y < 3; y++){
 			if(validateCombination(consoleBoard[0][y],consoleBoard[1][y],consoleBoard[2][y])){
                 return true;
 			}
@@ -77,7 +77,7 @@ public class Board {
     }
 
     private boolean validateVertical() {
-        for(int x=0;x<3;x++){
+        for(int x = 0; x < 3; x++){
             if(validateCombination(consoleBoard[x][0],consoleBoard[x][1],consoleBoard[x][2])){
                 return true;
             }
@@ -104,9 +104,9 @@ public class Board {
 	}
 	
 	public boolean isArrayFull(){
-		for (int i = 0; i < 3; i++) {
-			for (int i2 = 0; i2 < 3; i2++) {
-				if(consoleBoard[i][i2]==' '){
+		for (int x = 0; x < 3; x++) {
+			for (int y = 0; y < 3; y++) {
+				if(consoleBoard[x][y]==EMPTY_CHAR){
 					return false;
 				}
 
