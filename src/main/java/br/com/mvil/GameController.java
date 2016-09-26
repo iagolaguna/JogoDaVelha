@@ -8,6 +8,7 @@ import br.com.mvil.dto.StatusGame;
 import static br.com.mvil.InputOutputController.message;
 import static br.com.mvil.InputOutputController.messageWithEspaces;
 import static br.com.mvil.dto.StatusGame.TURN_PLAYER_ONE;
+import static br.com.mvil.dto.StatusGame.TURN_PLAYER_TWO;
 import static br.com.mvil.dto.StatusGame.WINNER_PLAYER_ONE;
 
 /**
@@ -55,7 +56,6 @@ public class GameController {
 
 
     public void putPiece(Position pos){
-
         try {
             if (gameDTO.getBoard().validatePosition(pos)) {
                 if (gameDTO.getStatus() == TURN_PLAYER_ONE) {
@@ -63,37 +63,41 @@ public class GameController {
                 } else {
                     gameDTO.getBoard().setValue(pos, gameDTO.getPlayer2().getBrand());
                 }
-                setStatus();
+                setStatusOfGame();
             }else{
                 message("Ja existe uma marca nesta posição, por favor informe outra posição");
             }
         }catch (ArrayIndexOutOfBoundsException e){
             message("Posição Invalida, favor inserir um Posição valida");
         }
-
         gameDTO.getBoard().showBoard();
     }
 
-    private void setStatus() {
+    private void setStatusOfGame() {
         if (gameDTO.getBoard().validateGame()){
-            switch (gameDTO.getStatus()){
-                case TURN_PLAYER_ONE:
-                    gameDTO.setStatus(StatusGame.WINNER_PLAYER_ONE);
-                    break;
-                case TURN_PLAYER_TWO:
-                    gameDTO.setStatus(StatusGame.WINNER_PLAYER_TWO);
-                    break;
-            }
-        }else if(!gameDTO.getBoard().validateGame() && gameDTO.getBoard().isArrayFull()){
+            setStatusWinner();
+        }else if(gameDTO.getBoard().isArrayFull()){
             gameDTO.setStatus(StatusGame.TIED_PLAYERS);
+        }else{
+            gameDTO.setStatus(gameDTO.getStatus() == TURN_PLAYER_ONE ? TURN_PLAYER_TWO : TURN_PLAYER_ONE);
+        }
+    }
+
+    private void setStatusWinner() {
+        switch (gameDTO.getStatus()){
+            case TURN_PLAYER_ONE:
+                gameDTO.setStatus(StatusGame.WINNER_PLAYER_ONE);
+                break;
+            case TURN_PLAYER_TWO:
+                gameDTO.setStatus(StatusGame.WINNER_PLAYER_TWO);
+                break;
         }
     }
 
 
-
     public void finalizeGame(){
         if (gameDTO.getStatus() == StatusGame.TIED_PLAYERS) {
-            message("Houve um empate entre os jogadores!");
+            messageWithEspaces("Houve um empate entre os jogadores!");
         }else{
             if (gameDTO.getStatus() == WINNER_PLAYER_ONE) {
                 messageWithEspaces("O Jogador 1 foi o Vencedor Sua Letra era '" + gameDTO.getPlayer1().getBrand() + "'");
