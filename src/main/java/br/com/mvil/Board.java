@@ -43,7 +43,7 @@ public class Board {
     /*
      * @Author Marcos Vinicius
      * */
-	public void setValue(Position pos, char brandValue){
+	void setValue(Position pos, char brandValue){
         boardDTO.setPosition(pos.getX(),pos.getY(),brandValue);
 	}
 
@@ -72,22 +72,19 @@ public class Board {
 			return true;
 		}
 
-		if(validateCombination(boardDTO.getPosition(0,2),boardDTO.getPosition(1,1),boardDTO.getPosition(2,0))){
-			return true;
-		}
+		return validateCombination(boardDTO.getPosition(0, 2), boardDTO.getPosition(1, 1), boardDTO.getPosition(2, 0));
 
-		return false;
 	}
 
 	/*
 	 * @Author Marcos Vinicius
 	 * */
-	public boolean validatePosition(Position pos){
+	boolean validatePosition(Position pos){
 		return boardDTO.getPosition(pos.getX(), pos.getY()) == BoardDTO.CHAR_WITH_SPACE
                 || boardDTO.getPosition(pos.getX(), pos.getY()) == BoardDTO.CHAR_NULL;
 	}
 	
-	public boolean isArrayFull(){
+	boolean isArrayFull(){
 		for (int x = 0; x < 3; x++) {
 			for (int y = 0; y < 3; y++) {
 				if(boardDTO.getPosition(x, y) == BoardDTO.CHAR_WITH_SPACE){

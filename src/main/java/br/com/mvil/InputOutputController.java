@@ -8,11 +8,11 @@ import java.util.Scanner;
 /**
  * Created by iago.laguna on 26/09/2016.
  */
-public class InputOutputController {
+class InputOutputController {
 
 
 
-    public Position readPositionOfPlayer(String player) {
+     Position readPositionOfPlayer(String player) {
         Scanner scanner = new Scanner(System.in);
         int x=0;
         int y=0;
@@ -35,11 +35,11 @@ public class InputOutputController {
     }
 
 
-    public static void message(String message) {
+     static void message(String message) {
         System.out.println(message);
     }
 
-    public static void messageWithEspaces(String message) {
+     static void messageWithEspaces(String message) {
         System.out.println("");
         System.out.println(message);
         System.out.println("");

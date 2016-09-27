@@ -17,10 +17,10 @@ import static br.com.mvil.dto.StatusGame.WINNER_PLAYER_ONE;
  * Created by Aluno on 22/09/2016.
  */
 
-public class GameController {
+ class GameController {
     private GameDTO gameDTO;
 
-    public GameController(){
+     GameController(){
         gameDTO = new GameDTO();
     }
 
@@ -34,7 +34,7 @@ public class GameController {
         this.run();
     }
 
-    public void init(){
+    void init(){
         message("Montando Tabuleiro...");
         message("Jogador 1  seu simbolo no tabuleiro é  'X'");
         message("Jogador 2  seu simbolo no tabuleiro é  'O'");
@@ -42,7 +42,7 @@ public class GameController {
         this.run();
     }
 
-    public void run() {
+    private void run() {
         InputOutputController mInputOutputController =new InputOutputController();
         while (isTurnOfAPlayer()){
                 Position posPiece = mInputOutputController.
@@ -57,7 +57,7 @@ public class GameController {
     }
 
 
-    public void putPiece(Position pos){
+    private void putPiece(Position pos){
         try {
             if (gameDTO.getBoard().validatePosition(pos)) {
                 if (gameDTO.getStatus() == TURN_PLAYER_ONE) {
@@ -97,7 +97,7 @@ public class GameController {
     }
 
 
-    public void finalizeGame(){
+    private void finalizeGame(){
         if (gameDTO.getStatus() == StatusGame.TIED_PLAYERS) {
             messageWithEspaces("Houve um empate entre os jogadores!");
         }else{
