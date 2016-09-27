@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JogoDaVelha:jar">
+    <output-path>$PROJECT_DIR$/JogoDaVelha_jar</output-path>
+    <root id="archive" name="JogoDaVelha.jar">
+      <element id="module-output" name="JogoDaVelha" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/mockito-all-1.10.19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/junit-4.12.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
