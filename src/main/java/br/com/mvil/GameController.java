@@ -5,6 +5,8 @@ import br.com.mvil.dto.PlayerDTO;
 import br.com.mvil.dto.Position;
 import br.com.mvil.dto.StatusGame;
 
+import java.util.InputMismatchException;
+
 import static br.com.mvil.InputOutputController.message;
 import static br.com.mvil.InputOutputController.messageWithEspaces;
 import static br.com.mvil.dto.StatusGame.TURN_PLAYER_ONE;
@@ -43,9 +45,9 @@ public class GameController {
     public void run() {
         InputOutputController mInputOutputController =new InputOutputController();
         while (isTurnOfAPlayer()){
-            Position posPiece = mInputOutputController.
-                                readPositionOfPlayer(String.valueOf(gameDTO.getStatus().getValue()));
-            putPiece(posPiece);
+                Position posPiece = mInputOutputController.
+                        readPositionOfPlayer(String.valueOf(gameDTO.getStatus().getValue()));
+                putPiece(posPiece);
         }
         finalizeGame();
     }

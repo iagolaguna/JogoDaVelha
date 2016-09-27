@@ -2,6 +2,7 @@ package br.com.mvil;
 
 import br.com.mvil.dto.Position;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -13,19 +14,23 @@ public class InputOutputController {
 
     public Position readPositionOfPlayer(String player) {
         Scanner scanner = new Scanner(System.in);
-        int x;
-        int y;
-        message(String.format("Jogador %s faça sua jogada",player));
-        message("Insira a posição da linha");
+        int x=0;
+        int y=0;
 
-        x = scanner.nextInt();
+        try {
+            message(String.format("Jogador %s faça sua jogada", player));
+            message("Insira a posição da linha");
 
-        message("Insira a posição da coluna");
+            x = scanner.nextInt();
 
-        y = scanner.nextInt();
+            message("Insira a posição da coluna");
 
-        message("A Linha escolhida foi: "+x+" A Coluna escolhida foi: "+y);
+            y = scanner.nextInt();
 
+            message("A Linha escolhida foi: " + x + " A Coluna escolhida foi: " + y);
+        }catch(InputMismatchException e){
+          message("Informe uma Posição valida com numeros(1, 2, 3)");
+        }
         return new Position(x-1,y-1);
     }
 

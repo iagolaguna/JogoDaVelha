@@ -31,7 +31,7 @@ public class ValidateCombinationTest {
         System.out.println("validateDiagonalCorrectTest");
         System.out.println("-------------------------------------------------------");
         board.showBoard();
-        Assert.assertEquals("Its correct why a set the same brand for all diagonal ",true, board.validateDiagonal());
+        Assert.assertEquals("Its correct why a set the same brand for all diagonal ",true, board.validateGame());
     }
     @Test
     public void validateDiagonalIncorrectTest(){
@@ -43,7 +43,7 @@ public class ValidateCombinationTest {
         System.out.println("validateDiagonalCorrectTest");
         System.out.println("-------------------------------------------------------");
         board.showBoard();
-        Assert.assertEquals("can't be true why this diagonal don't contain all brands equals",false, board.validateDiagonal());
+        Assert.assertEquals("can't be true why this diagonal don't contain all brands equals",false, board.validateGame());
     }
 
 
@@ -57,7 +57,7 @@ public class ValidateCombinationTest {
         System.out.println("validateDiagonalCorrectTest");
         System.out.println("-------------------------------------------------------");
         board.showBoard();
-        Assert.assertEquals("Its correct why a set the same brand for all diagonal reverse",true, board.validateDiagonalReverse());
+        Assert.assertEquals("Its correct why a set the same brand for all diagonal reverse",true, board.validateGame());
     }
     @Test
     public void validateDiagonalReverseIncorrectTest(){
@@ -69,7 +69,7 @@ public class ValidateCombinationTest {
         System.out.println("validateDiagonalCorrectTest");
         System.out.println("-------------------------------------------------------");
         board.showBoard();
-        Assert.assertEquals("can't be true why this diagonal don't contain all brands equals",false, board.validateDiagonalReverse());
+        Assert.assertEquals("can't be true why this diagonal don't contain all brands equals",false, board.validateGame());
     }
 
     @Test
@@ -82,7 +82,7 @@ public class ValidateCombinationTest {
         System.out.println("validateDiagonalCorrectTest");
         System.out.println("-------------------------------------------------------");
         board.showBoard();
-        Assert.assertEquals("can't be true why this vertical don't contain all brands equals",false, board.validateVertical());
+        Assert.assertEquals("can't be true why this vertical don't contain all brands equals",false, board.validateGame());
     }
 
     @Test
@@ -95,7 +95,7 @@ public class ValidateCombinationTest {
         System.out.println("validateDiagonalCorrectTest");
         System.out.println("-------------------------------------------------------");
         board.showBoard();
-        Assert.assertEquals("Its correct why a set the same brand for all diagonal reverse",true, board.validateVertical());
+        Assert.assertEquals("Its correct why a set the same brand for all diagonal reverse",true, board.validateGame());
     }
 
 }

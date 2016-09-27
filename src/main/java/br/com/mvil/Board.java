@@ -54,39 +54,30 @@ public class Board {
 		return a==b && b==c &&  a != BoardDTO.CHAR_WITH_SPACE;
 		
 	}
-	
-	/*
+	 /*
 	 * @Author Marcos Vinicius
 	 * */
 	public boolean validateGame(){
-        return  validateHorizontal() || validateVertical() || validateDiagonal() || validateDiagonalReverse();
-    }
 
-    public boolean validateDiagonalReverse() {
-        return  validateCombination(boardDTO.getPosition(0, 2), boardDTO.getPosition(1, 1), boardDTO.getPosition(2, 0));
-    }
-
-    public boolean validateDiagonal() {
-        return validateCombination(boardDTO.getPosition(0, 0), boardDTO.getPosition(1, 1), boardDTO.getPosition(2, 2));
-    }
-
-    public boolean validateHorizontal() {
-        for(int y = 0; y < 3; y++){
-			if(validateCombination(boardDTO.getPosition(0, y), boardDTO.getPosition(1, y), boardDTO.getPosition(2, y))){
-                return true;
+		for(int x=0;x<3;x++){
+			if(validateCombination(boardDTO.getPosition(x,0),boardDTO.getPosition(x,1),boardDTO.getPosition(x,2))){
+				return true;
+			}
+			if(validateCombination(boardDTO.getPosition(0,x),boardDTO.getPosition(1,x),boardDTO.getPosition(2,x))){
+				return true;
 			}
 		}
-        return false;
-    }
 
-    public boolean validateVertical() {
-        for(int x = 0; x < 3; x++){
-            if(validateCombination(boardDTO.getPosition(x, 0), boardDTO.getPosition(x, 1), boardDTO.getPosition(x, 2))){
-                return true;
-            }
-        }
-        return false;
-    }
+		if(validateCombination(boardDTO.getPosition(0,0),boardDTO.getPosition(1,1),boardDTO.getPosition(2,2))){
+			return true;
+		}
+
+		if(validateCombination(boardDTO.getPosition(0,2),boardDTO.getPosition(1,1),boardDTO.getPosition(2,0))){
+			return true;
+		}
+
+		return false;
+	}
 
 	/*
 	 * @Author Marcos Vinicius
